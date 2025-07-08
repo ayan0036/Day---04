@@ -1,0 +1,13 @@
+ *Short Explanation of url.parse() and Query Handling: 
+In Node.js, the url module provides a method called url.parse() which is used to break down a URL string into its individual components like pathname, query string, protocol, etc. When we call url.parse(req.url, true), the second argument true tells Node to automatically parse the query string (the part after the ?) into a JavaScript object. 
+
+For example: if the request URL is http://localhost:3000/?name=John&course=NodeJS, calling url.parse(req.url, true) returns an 
+
+object where query is: 
+{ name: 'John', course: 'NodeJS' } 
+
+We can then directly access name and course using object destructuring like: 
+
+const { name, course } = parsedUrl.query; 
+
+This makes it easy to handle user input sent via query parameters and use it to generate custom responses in the server. It’s a quick and simple way to extract data from the URL without any extra libraries.
